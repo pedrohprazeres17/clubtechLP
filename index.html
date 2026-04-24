@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clubtech — Seguros para Celular e Eletropropelidos</title>
+  <meta name="description" content="Clubtech é uma MGA especializada em seguros para celulares e eletropropelidos. Contratação 100% digital, cobertura completa, ativação imediata." />
+  <meta property="og:title" content="Clubtech — Seguros para Celular e Eletropropelidos" />
+  <meta property="og:description" content="Seu celular caiu. Você está coberto. Ativou em 3 minutos. Cobre de verdade." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#B8FF47" />
+
+  <!-- Brand fonts: Sora (headlines) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    /* ── Brand tokens (manual exato) ───────────────────── */
+    :root {
+      --navy:        #0A0E1A;
+      --navy-mid:    #141929;
+      --navy-light:  #1E2640;
+      --lime:        #B8FF47;
+      --lime-dim:    #8FCC2A;
+      --lime-alpha:  rgba(184,255,71,0.10);
+      --lime-border: rgba(184,255,71,0.18);
+      --lime-glow:   rgba(184,255,71,0.20);
+      --cyan:        #3BFFD8;
+      --cyan-alpha:  rgba(59,255,216,0.10);
+      --cyan-border: rgba(59,255,216,0.18);
+      --electric:    #5B6EF5;
+      --warm:        #FF6B35;
+      --white:       #F4F6FF;
+      --gray-1:      #E8ECF8;
+      --gray-2:      #9BA3BF;
+      --gray-3:      #4A5168;
+      --border:      rgba(255,255,255,0.07);
+      --border-lime: rgba(184,255,71,0.15);
+    }
+
+    /* ── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; }
+
+    /* ── Scrollbar ──────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--gray-3); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--lime-dim); }
+
+    /* ── Typography ─────────────────────────────────────── */
+    .sora { font-family: 'Sora', sans-serif; }
+    .text-lime { color: var(--lime); }
+    .text-cyan { color: var(--cyan); }
+    .text-muted { color: var(--gray-2); }
+    .text-dim   { color: var(--gray-3); }
+
+    .text-gradient-lime {
+      background: linear-gradient(135deg, var(--lime) 0%, var(--cyan) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Headings ─ Sora ────────────────────────────────── */
+    h1, h2, h3, h4 {
+      font-family: 'Sora', sans-serif;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--white);
+    }
+    h1 { font-size: clamp(2.4rem, 4.5vw, 3.6rem); font-weight: 800; }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; }
+    h3 { font-size: 1.1rem; font-weight: 600; }
+
+    /* ── Section label ──────────────────────────────────── */
+    .section-label {
+      font-family: 'Sora', sans-serif;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--lime); opacity: 0.75; margin-bottom: 6px;
+    }
+
+    /* ── Buttons (manual spec) ──────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: 'Sora', sans-serif; font-weight: 700;
+      font-size: 14px; letter-spacing: 0.01em;
+      padding: 12px 24px; border-radius: 8px; border: none;
+      cursor: pointer; white-space: nowrap; text-decoration: none;
+      transition: filter 0.18s, transform 0.18s, box-shadow 0.18s;
+    }
+    .btn-primary {
+      background: var(--lime); color: var(--navy);
+    }
+    .btn-primary:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px var(--lime-glow);
+    }
+    .btn-secondary {
+      background: transparent; color: var(--lime);
+      border: 1.5px solid var(--lime);
+      padding: 11px 24px;
+    }
+    .btn-secondary:hover {
+      background: var(--lime-alpha);
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: rgba(255,255,255,0.06); color: var(--gray-1);
+      border: 1px solid rgba(255,255,255,0.1);
+      font-family: 'DM Sans', sans-serif; font-weight: 500;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ── Badges (manual spec) ───────────────────────────── */
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: 'Sora', sans-serif; font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 20px; letter-spacing: 0.03em;
+    }
+    .badge-lime { background: var(--lime-alpha); color: var(--lime); }
+    .badge-cyan { background: var(--cyan-alpha); color: var(--cyan); }
+    .badge-section {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--lime);
+      background: var(--lime-alpha); border: 1px solid var(--lime-border);
+      padding: 4px 12px; border-radius: 20px;
+    }
+
+    /* ── Cards (manual spec) ────────────────────────────── */
+    .card {
+      background: var(--navy-light);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .card::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle, var(--lime-alpha) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .card:hover {
+      border-color: var(--lime-border);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    }
+    .card-cyan::before {
+      background: radial-gradient(circle, var(--cyan-alpha) 0%, transparent 70%);
+    }
+    .card-cyan:hover { border-color: var(--cyan-border); }
+
+    /* ── Card icon ──────────────────────────────────────── */
+    .card-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: var(--lime-alpha); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--lime);
+    }
+    .card-icon svg { width: 18px; height: 18px; }
+    .card-icon-cyan {
+      background: var(--cyan-alpha); color: var(--cyan);
+    }
+
+    /* ── Navigation ─────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+      background: rgba(10,14,26,0.82);
+      border-bottom: 1px solid var(--border-lime);
+      transition: background 0.3s;
+    }
+    .nav.scrolled { background: rgba(10,14,26,0.97); }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+
+    /* ── Logo ───────────────────────────────────────────── */
+    .logo {
+      font-family: 'Sora', sans-serif; font-weight: 800;
+      font-size: 1.35rem; letter-spacing: -0.03em; line-height: 1;
+      color: var(--white); text-decoration: none;
+    }
+    .logo span { color: var(--lime); }
+
+    /* ── Nav links ──────────────────────────────────────── */
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-link {
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 400;
+      color: var(--gray-2); transition: color 0.18s;
+    }
+    .nav-link:hover { color: var(--white); }
+
+    /* ── Reveal ─────────────────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.6s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.08s; }
+    .d2 { transition-delay: 0.16s; }
+    .d3 { transition-delay: 0.24s; }
+    .d4 { transition-delay: 0.32s; }
+
+    /* ── Tabs ───────────────────────────────────────────── */
+    .tab-bar {
+      display: inline-flex; gap: 4px;
+      background: var(--navy-mid); border: 1px solid var(--border);
+      border-radius: 10px; padding: 4px;
+    }
+    .tab-btn {
+      padding: 9px 22px; border-radius: 7px; border: none;
+      font-family: 'Sora', sans-serif; font-weight: 600; font-size: 13px;
+      cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    }
+    .tab-btn.active { background: var(--lime); color: var(--navy); }
+    .tab-btn.inactive { background: transparent; color: var(--gray-2); }
+    .tab-btn.inactive:hover { color: var(--white); }
+
+    /* ── Float animations ───────────────────────────────── */
+    @keyframes float-a {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-14px) rotate(2deg); }
+    }
+    @keyframes float-b {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(-2deg); }
+    }
+    .float-a { animation: float-a 7s ease-in-out infinite; }
+    .float-b { animation: float-b 9s ease-in-out infinite 1.5s; }
+
+    /* ── Sections ───────────────────────────────────────── */
+    .section { padding: 96px 0; }
+    .section-alt { background: var(--navy-mid); }
+    .section-center { text-align: center; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .container-sm { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Step badge ─────────────────────────────────────── */
+    .step-badge {
+      font-family: 'Sora', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--lime); color: var(--navy);
+      padding: 3px 10px; border-radius: 20px; display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    /* ── Counter ────────────────────────────────────────── */
+    .counter-val {
+      font-family: 'Sora', sans-serif; font-size: 2.8rem;
+      font-weight: 800; line-height: 1; letter-spacing: -0.03em;
+      color: var(--lime);
+    }
+    .counter-val.cyan-val { color: var(--cyan); }
+
+    /* ── Stars ──────────────────────────────────────────── */
+    .stars { color: #F59E0B; font-size: 0.88rem; letter-spacing: 1px; }
+
+    /* ── Avatar ─────────────────────────────────────────── */
+    .avatar {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.88rem;
+    }
+
+    /* ── Form inputs ────────────────────────────────────── */
+    .form-label {
+      display: block; font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 500; color: var(--gray-2);
+      margin-bottom: 7px; letter-spacing: 0.03em;
+    }
+    .form-input {
+      width: 100%; padding: 12px 14px;
+      background: var(--navy); color: var(--white);
+      border: 1px solid var(--gray-3); border-radius: 8px;
+      font-family: 'DM Sans', sans-serif; font-size: 14px;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input::placeholder { color: var(--gray-3); }
+    .form-input:focus {
+      border-color: var(--lime);
+      box-shadow: 0 0 0 3px var(--lime-alpha);
+    }
+
+    /* ── FAQ ────────────────────────────────────────────── */
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-btn {
+      width: 100%; display: flex; align-items: center;
+      justify-content: space-between; padding: 20px 24px;
+      background: transparent; border: none; cursor: pointer;
+      text-align: left; gap: 16px; font-family: inherit;
+    }
+    .faq-q {
+      font-family: 'Sora', sans-serif; font-weight: 600;
+      font-size: 0.9rem; color: var(--white);
+    }
+    .faq-chevron {
+      flex-shrink: 0; color: var(--gray-3);
+      transition: transform 0.22s;
+    }
+    .faq-chevron.open { transform: rotate(180deg); color: var(--lime); }
+    .faq-body {
+      padding: 0 24px 20px;
+      font-size: 0.875rem; color: var(--gray-2); line-height: 1.75;
+    }
+
+    /* ── Check list ─────────────────────────────────────── */
+    .check-item { display: flex; align-items: flex-start; gap: 10px; }
+    .check-box {
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;
+      background: var(--lime-alpha); border: 1px solid var(--lime-border);
+      border-radius: 5px; display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── Partner cards ──────────────────────────────────── */
+    .partner-card {
+      background: var(--navy-light); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px; text-align: center;
+      transition: border-color 0.22s, transform 0.22s;
+    }
+    .partner-card:hover {
+      border-color: var(--lime-border);
+      transform: translateY(-3px);
+    }
+
+    /* ── Divider with lime gradient ─────────────────────── */
+    .divider-lime {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--lime-border), transparent);
+    }
+
+    /* ── Glow blobs ─────────────────────────────────────── */
+    .glow {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); pointer-events: none;
+    }
+
+    /* ── Trust pill ─────────────────────────────────────── */
+    .trust-pill {
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'DM Sans', sans-serif; font-size: 12px;
+      color: var(--gray-2); font-weight: 400;
+    }
+    .trust-dot { width: 1px; height: 14px; background: var(--gray-3); }
+
+    /* ── WhatsApp ───────────────────────────────────────── */
+    .wa-btn {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .wa-btn:hover { transform: scale(1.1); box-shadow: 0 10px 28px rgba(37,211,102,0.5); }
+
+    /* ── Grid helpers ───────────────────────────────────── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .grid-col-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: center; }
+    .grid-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+
+    @media (max-width: 900px) {
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .grid-hero, .grid-col-2-1 { grid-template-columns: 1fr; }
+      .hide-mobile { display: none !important; }
+      h1 { font-size: 2.2rem; }
+    }
+    @media (max-width: 560px) {
+      .grid-2, .grid-4 { grid-template-columns: 1fr; }
+      .nav-links { display: none !important; }
+    }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    footer a:hover { color: var(--lime) !important; }
+
+    /* ── Scroll cue pulse ───────────────────────────────── */
+    @keyframes sc-pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+  NAV
+══════════════════════════════════════════ -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">Club<span>tech</span></a>
+
+    <div class="nav-links" id="desktop-nav">
+      <a href="#coberturas" class="nav-link">Coberturas</a>
+      <a href="#como-funciona" class="nav-link">Como funciona</a>
+      <a href="#parceiros" class="nav-link">Parceiros</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </div>
+
+    <a href="#cotacao" class="btn btn-primary" style="padding:10px 20px;font-size:13px;">Fazer Cotação →</a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+  HERO
+══════════════════════════════════════════ -->
+<section style="position:relative;min-height:100vh;display:flex;align-items:center;padding-top:64px;overflow:hidden;" x-data="{ tab: 'celular' }">
+
+  <!-- Glow blobs (manual: lime top-right, cyan bottom-left) -->
+  <div class="glow" style="width:600px;height:600px;background:rgba(184,255,71,0.07);top:-120px;right:-180px;"></div>
+  <div class="glow" style="width:400px;height:400px;background:rgba(59,255,216,0.06);bottom:-120px;left:-80px;"></div>
+  <!-- Grid dots overlay -->
+  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;"></div>
+
+  <div class="container" style="padding-top:80px;padding-bottom:80px;width:100%;">
+    <div class="grid-hero">
+
+      <!-- Copy -->
+      <div class="reveal">
+        <div class="badge-section" style="margin-bottom:22px;">
+          <span style="width:5px;height:5px;background:var(--lime);border-radius:50%;display:inline-block;animation:sc-pulse 2s infinite;"></span>
+          MGA Digital · Regulado SUSEP
+        </div>
+
+        <h1 style="margin-bottom:20px;">
+          Seu celular e<br/>seu elétrico<br/>
+          <span class="text-gradient-lime">protegidos.</span><br/>
+          <span style="color:var(--white);">Simples assim.</span>
+        </h1>
+
+        <p style="font-size:16px;color:var(--gray-2);line-height:1.7;max-width:460px;margin-bottom:32px;">
+          Contratação 100% digital em minutos. Sem papelada, sem burocracia. Cobertura ativa imediatamente após aprovação.
+        </p>
+
+        <!-- Product tabs -->
+        <div class="tab-bar" style="margin-bottom:22px;">
+          <button class="tab-btn" :class="tab==='celular'?'active':'inactive'" @click="tab='celular'">📱 Celular</button>
+          <button class="tab-btn" :class="tab==='eletro'?'active':'inactive'" @click="tab='eletro'">⚡ Eletropropelido</button>
+        </div>
+
+        <div x-show="tab==='celular'" style="margin-bottom:28px;">
+          <p style="font-size:14px;color:var(--gray-1);line-height:1.65;max-width:420px;">Proteja seu smartphone contra roubo, furto, quedas e danos acidentais. <strong style="color:var(--lime);">A partir de R$&nbsp;19,90/mês.</strong></p>
+        </div>
+        <div x-show="tab==='eletro'" style="margin-bottom:28px;">
+          <p style="font-size:14px;color:var(--gray-1);line-height:1.65;max-width:420px;">Bike elétrica, patinete ou ciclomotor com RC, assistência 24h e cobertura contra roubo e acidentes. <strong style="color:var(--cyan);">Planos a partir de R$&nbsp;49/mês.</strong></p>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px;">
+          <a href="#cotacao" class="btn btn-primary">Fazer Cotação →</a>
+          <a href="#como-funciona" class="btn btn-secondary">Como funciona</a>
+        </div>
+
+        <!-- Trust -->
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <div class="trust-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Regulado SUSEP
+          </div>
+          <div class="trust-dot"></div>
+          <div class="trust-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Garantido Clubfix
+          </div>
+          <div class="trust-dot"></div>
+          <div class="trust-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Ativação imediata
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero visual -->
+      <div class="reveal d2 hide-mobile" style="position:relative;display:flex;justify-content:center;align-items:center;height:500px;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(184,255,71,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+
+        <!-- Main product card (Celular) -->
+        <div x-show="tab==='celular'" class="float-a" style="background:var(--navy-light);border:1px solid rgba(184,255,71,0.25);border-radius:14px;padding:28px 24px;width:200px;box-shadow:0 40px 80px rgba(0,0,0,0.5);">
+          <div class="card-icon" style="margin-bottom:16px;width:42px;height:42px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div style="font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-2);margin-bottom:4px;">Seguro Celular</div>
+          <div style="font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;margin-bottom:14px;">iPhone 15 Pro</div>
+          <div style="background:var(--lime-alpha);border:1px solid var(--lime-border);border-radius:7px;padding:8px 12px;font-family:'Sora',sans-serif;font-size:11px;font-weight:600;color:var(--lime);">✓ Ativo e protegido</div>
+        </div>
+
+        <!-- Main product card (Eletro) -->
+        <div x-show="tab==='eletro'" class="float-a" style="background:var(--navy-light);border:1px solid rgba(59,255,216,0.25);border-radius:14px;padding:28px 24px;width:200px;box-shadow:0 40px 80px rgba(0,0,0,0.5);">
+          <div class="card-icon card-icon-cyan" style="margin-bottom:16px;width:42px;height:42px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div style="font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-2);margin-bottom:4px;">Seguro Elétrico</div>
+          <div style="font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;margin-bottom:14px;">Bike Elétrica</div>
+          <div style="background:var(--cyan-alpha);border:1px solid var(--cyan-border);border-radius:7px;padding:8px 12px;font-family:'Sora',sans-serif;font-size:11px;font-weight:600;color:var(--cyan);">✓ Ativo e protegido</div>
+        </div>
+
+        <!-- Floating badge: sinistro aprovado -->
+        <div class="float-b" style="position:absolute;top:12%;right:0;background:var(--navy-light);border:1px solid var(--border);border-radius:10px;padding:12px 16px;">
+          <div style="font-size:10px;color:var(--gray-2);margin-bottom:3px;">Sinistro aprovado</div>
+          <div style="font-family:'Sora',sans-serif;font-size:0.9rem;font-weight:800;color:var(--lime);">R$ 4.200 ✓</div>
+        </div>
+
+        <!-- Floating badge: tempo -->
+        <div class="float-a" style="position:absolute;bottom:15%;left:0;background:var(--navy-light);border:1px solid var(--border);border-radius:10px;padding:12px 16px;animation-delay:2s;">
+          <div style="font-size:10px;color:var(--gray-2);margin-bottom:3px;">Tempo de cotação</div>
+          <div style="font-family:'Sora',sans-serif;font-size:0.9rem;font-weight:800;">⚡ &lt; 2 minutos</div>
+        </div>
+
+        <!-- Stats -->
+        <div style="position:absolute;bottom:2%;left:50%;transform:translateX(-50%);background:var(--navy-light);border:1px solid var(--border);border-radius:10px;padding:12px 24px;display:flex;gap:24px;align-items:center;">
+          <div style="text-align:center;">
+            <div style="font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:800;color:var(--lime);">+5.000</div>
+            <div style="font-size:10px;color:var(--gray-2);">segurados</div>
+          </div>
+          <div style="width:1px;height:24px;background:var(--gray-3);"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:800;color:var(--lime);">98%</div>
+            <div style="font-size:10px;color:var(--gray-2);">satisfação</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none;opacity:0.5;">
+    <span style="font-family:'Sora',sans-serif;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--gray-3);">Rolar</span>
+    <div style="width:1px;height:28px;background:linear-gradient(to bottom,var(--lime),transparent);animation:sc-pulse 2.5s ease-in-out infinite;"></div>
+  </div>
+</section>
+
+<div class="divider-lime"></div>
+
+
+<!-- ══════════════════════════════════════════
+  COBERTURAS
+══════════════════════════════════════════ -->
+<section id="coberturas" class="section section-alt" x-data="{ tab: 'celular' }">
+  <div class="container">
+
+    <div class="section-center reveal" style="margin-bottom:48px;">
+      <div class="badge-section" style="margin-bottom:14px;">02 · Coberturas</div>
+      <h2 style="margin-bottom:12px;">O que protegemos</h2>
+      <p class="text-muted" style="font-size:15px;max-width:460px;margin:0 auto;">Cobertura completa para as situações que mais acontecem no dia a dia.</p>
+    </div>
+
+    <div style="display:flex;justify-content:center;margin-bottom:40px;" class="reveal">
+      <div class="tab-bar">
+        <button class="tab-btn" :class="tab==='celular'?'active':'inactive'" @click="tab='celular'">📱 Seguro Celular</button>
+        <button class="tab-btn" :class="tab==='eletro'?'active':'inactive'" @click="tab='eletro'">⚡ Seguro Eletropropelido</button>
+      </div>
+    </div>
+
+    <!-- Celular coverage -->
+    <div x-show="tab==='celular'">
+      <div class="grid-4 reveal">
+
+        <div class="card" style="padding:24px;">
+          <div class="card-header" style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+          </div>
+          <h3 style="margin-bottom:8px;">Roubo e Furto</h3>
+          <p class="text-muted" style="font-size:13px;line-height:1.65;">Cobertura total contra roubo e furto qualificado do seu smartphone.</p>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <div style="margin-bottom:14px;">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+          </div>
+          <h3 style="margin-bottom:8px;">Danos Acidentais</h3>
+          <p class="text-muted" style="font-size:13px;line-height:1.65;">Quedas, impactos e danos por líquidos cobertos sem complicação.</p>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <div style="margin-bottom:14px;">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+          </div>
+          <h3 style="margin-bottom:8px;">Quebra de Tela</h3>
+          <p class="text-muted" style="font-size:13px;line-height:1.65;">Reparo ou troca com peças originais e técnicos especializados.</p>
+        </div>
+
+        <div class="card" style="padding:24px;">
+          <div style="margin-bottom:14px;">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+          </div>
+          <h3 style="margin-bottom:8px;">Assistência Técnica</h3>
+          <p class="text-muted" style="font-size:13px;line-height:1.65;">Rede credenciada em todo o Brasil para reparo especializado.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Eletro coverage -->
+    <div x-show="tab==='eletro'">
+      <div class="grid-4 reveal">
+
+        <div class="card card-cyan" style="padding:24px;">
+          <div style="margin-bottom:14px;">
+            <div class="card-icon card-icon-cyan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+          </div>
+          <h3 style="margin-bottom:8px;">Roubo e Furto</h3>
+          <p class="text-muted" style="font-size:13px;line-height:1.65;">Proteção total contra roubo e furto qualificado do veículo elétrico.</p>
+        </div>
+
+        <div class="card card-cyan" style="padding:24px;">
+          <div style="margin-bottom:14px;">
+            <div class="card-icon card-icon-cyan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+          </div>
+          <h3 style="margin-bottom:8px;">Danos por Acidente</h3>
+          <p class="text-muted" style="font-size:13px;line-height:1.65;">Colisões, tombamentos e danos acidentais ao veículo cobertos.</p>
+        </div>
+
+        <div class="card card-cyan" style="padding:24px;">
+          <div style="margin-bottom:14px;">
+            <div class="card-icon card-icon-cyan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+          </div>
+          <h3 style="margin-bottom:8px;">Responsabilidade Civil</h3>
+          <p class="text-muted" style="font-size:13px;line-height:1.65;">RC contra terceiros: danos materiais e corporais em acidentes.</p>
+        </div>
+
+        <div class="card card-cyan" style="padding:24px;">
+          <div style="margin-bottom:14px;">
+            <div class="card-icon card-icon-cyan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+          </div>
+          <h3 style="margin-bottom:8px;">Assistência 24h</h3>
+          <p class="text-muted" style="font-size:13px;line-height:1.65;">Socorro mecânico e guincho a qualquer hora, em qualquer lugar.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section-center reveal" style="margin-top:36px;">
+      <a href="#cotacao" class="btn btn-primary">Ver planos e preços →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider-lime"></div>
+
+
+<!-- ══════════════════════════════════════════
+  COMO FUNCIONA
+══════════════════════════════════════════ -->
+<section id="como-funciona" class="section">
+  <div class="container">
+
+    <div class="section-center reveal" style="margin-bottom:56px;">
+      <div class="badge-section" style="margin-bottom:14px;">03 · Processo</div>
+      <h2 style="margin-bottom:12px;">Como funciona</h2>
+      <p class="text-muted" style="font-size:15px;">Três passos. Sem papelada. Sem enrolação.</p>
+    </div>
+
+    <div class="grid-3" style="position:relative;">
+      <!-- Connector -->
+      <div style="position:absolute;top:40px;left:calc(16.66% + 28px);right:calc(16.66% + 28px);height:1px;background:linear-gradient(90deg,transparent,rgba(184,255,71,0.2),transparent);pointer-events:none;" class="hide-mobile"></div>
+
+      <div class="card reveal" style="padding:32px 24px;text-align:center;">
+        <div style="width:56px;height:56px;background:var(--lime-alpha);border:1.5px solid var(--lime-border);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.5rem;">🔍</div>
+        <div class="step-badge">Passo 1</div>
+        <h3 style="margin-bottom:10px;">Escolha seu produto</h3>
+        <p class="text-muted" style="font-size:13px;line-height:1.65;">Celular ou eletropropelido. Personalize a cobertura conforme suas necessidades.</p>
+      </div>
+
+      <div class="card reveal d2" style="padding:32px 24px;text-align:center;border-color:var(--lime-border);background:linear-gradient(160deg,var(--navy-light),rgba(184,255,71,0.03));">
+        <div style="width:56px;height:56px;background:var(--lime-alpha);border:1.5px solid var(--lime-border);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.5rem;">⚡</div>
+        <div class="step-badge">Passo 2</div>
+        <h3 style="margin-bottom:10px;">Faça a cotação</h3>
+        <p class="text-muted" style="font-size:13px;line-height:1.65;">100% digital, leva menos de 2 minutos. Escolha o plano e finalize com segurança.</p>
+      </div>
+
+      <div class="card reveal d4" style="padding:32px 24px;text-align:center;">
+        <div style="width:56px;height:56px;background:var(--lime-alpha);border:1.5px solid var(--lime-border);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.5rem;">✅</div>
+        <div class="step-badge">Passo 3</div>
+        <h3 style="margin-bottom:10px;">Ative e proteja</h3>
+        <p class="text-muted" style="font-size:13px;line-height:1.65;">Cobertura imediata após aprovação. Apólice no e-mail, proteção ativa já.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-lime"></div>
+
+
+<!-- ══════════════════════════════════════════
+  PARA QUEM É
+══════════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+
+    <div class="section-center reveal" style="margin-bottom:48px;">
+      <div class="badge-section" style="margin-bottom:14px;">04 · Público</div>
+      <h2 style="margin-bottom:12px;">Feito para o seu perfil</h2>
+      <p class="text-muted" style="font-size:15px;">Soluções pensadas para quem mais depende de proteção digital.</p>
+    </div>
+
+    <div class="grid-4">
+
+      <div class="card reveal" style="padding:24px;">
+        <div style="font-size:2.2rem;margin-bottom:16px;">📱</div>
+        <h3 style="margin-bottom:8px;">Usuário de Smartphone</h3>
+        <p class="text-muted" style="font-size:13px;line-height:1.65;margin-bottom:16px;">Quem usa celular de médio ou alto valor e quer estar protegido a qualquer momento.</p>
+        <div style="padding-top:14px;border-top:1px solid var(--border);">
+          <span style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;color:var(--lime);">A partir de R$ 19,90/mês →</span>
+        </div>
+      </div>
+
+      <div class="card reveal d1" style="padding:24px;">
+        <div style="font-size:2.2rem;margin-bottom:16px;">🚴</div>
+        <h3 style="margin-bottom:8px;">Ciclista Urbano</h3>
+        <p class="text-muted" style="font-size:13px;line-height:1.65;margin-bottom:16px;">Quem usa bike elétrica diariamente e precisa de cobertura total nas ruas da cidade.</p>
+        <div style="padding-top:14px;border-top:1px solid var(--border);">
+          <span style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;color:var(--cyan);">Cobertura completa →</span>
+        </div>
+      </div>
+
+      <div class="card reveal d2" style="padding:24px;">
+        <div style="font-size:2.2rem;margin-bottom:16px;">🛵</div>
+        <h3 style="margin-bottom:8px;">Entregador</h3>
+        <p class="text-muted" style="font-size:13px;line-height:1.65;margin-bottom:16px;">Para profissionais que dependem do patinete ou ciclomotor para trabalhar e gerar renda.</p>
+        <div style="padding-top:14px;border-top:1px solid var(--border);">
+          <span style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;color:var(--cyan);">Plano profissional →</span>
+        </div>
+      </div>
+
+      <div class="card reveal d3" style="padding:24px;">
+        <div style="font-size:2.2rem;margin-bottom:16px;">🏢</div>
+        <h3 style="margin-bottom:8px;">Pessoa Jurídica</h3>
+        <p class="text-muted" style="font-size:13px;line-height:1.65;margin-bottom:16px;">Empresas com frotas de celulares corporativos ou veículos elétricos para proteger.</p>
+        <div style="padding-top:14px;border-top:1px solid var(--border);">
+          <span style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;color:var(--lime);">Plano empresarial →</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-lime"></div>
+
+
+<!-- ══════════════════════════════════════════
+  CONTADORES + DEPOIMENTOS
+══════════════════════════════════════════ -->
+<section class="section" x-data="countersComp()" x-init="initObs">
+  <div class="container">
+
+    <!-- Counters -->
+    <div class="grid-4" style="margin-bottom:72px;">
+      <div class="card reveal" style="padding:32px 24px;text-align:center;">
+        <div class="counter-val" x-text="'+' + c.segurados.toLocaleString('pt-BR')">+0</div>
+        <div class="text-muted" style="font-size:13px;margin-top:8px;font-weight:500;">Segurados ativos</div>
+      </div>
+      <div class="card reveal d1" style="padding:32px 24px;text-align:center;">
+        <div class="counter-val" x-text="'+' + c.sinistros.toLocaleString('pt-BR')">+0</div>
+        <div class="text-muted" style="font-size:13px;margin-top:8px;font-weight:500;">Sinistros resolvidos</div>
+      </div>
+      <div class="card reveal d2" style="padding:32px 24px;text-align:center;">
+        <div class="counter-val" x-text="c.satisfacao + '%'">0%</div>
+        <div class="text-muted" style="font-size:13px;margin-top:8px;font-weight:500;">Taxa de satisfação</div>
+      </div>
+      <div class="card reveal d3" style="padding:32px 24px;text-align:center;">
+        <div class="counter-val" x-text="c.minutos + ' min'">0</div>
+        <div class="text-muted" style="font-size:13px;margin-top:8px;font-weight:500;">Tempo de cotação</div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="section-center reveal" style="margin-bottom:40px;">
+      <div class="badge-section" style="margin-bottom:14px;">05 · Depoimentos</div>
+      <h2>O que nossos clientes dizem</h2>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card reveal" style="padding:24px;">
+        <div class="stars" style="margin-bottom:14px;">★★★★★</div>
+        <p style="font-size:13px;color:var(--gray-1);line-height:1.75;margin-bottom:20px;">"Meu iPhone foi roubado e em menos de 3 dias recebi o ressarcimento completo. Processo todo digital, sem burocracia nenhuma. Recomendo muito!"</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="avatar" style="background:linear-gradient(135deg,var(--lime),var(--cyan));color:var(--navy);">M</div>
+          <div>
+            <div style="font-family:'Sora',sans-serif;font-size:13px;font-weight:600;">Marina S.</div>
+            <div class="text-muted" style="font-size:11px;">São Paulo, SP</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card reveal d2" style="padding:24px;border-color:var(--lime-border);">
+        <div class="stars" style="margin-bottom:14px;">★★★★★</div>
+        <p style="font-size:13px;color:var(--gray-1);line-height:1.75;margin-bottom:20px;">"Trabalho com delivery e minha bike é tudo pra mim. O seguro da Clubtech me salvou quando ela foi furtada. Assistência 24h de verdade — rápida e eficiente."</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="avatar" style="background:linear-gradient(135deg,var(--electric),var(--cyan));color:white;">R</div>
+          <div>
+            <div style="font-family:'Sora',sans-serif;font-size:13px;font-weight:600;">Rafael M.</div>
+            <div class="text-muted" style="font-size:11px;">Rio de Janeiro, RJ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card reveal d4" style="padding:24px;">
+        <div class="stars" style="margin-bottom:14px;">★★★★★</div>
+        <p style="font-size:13px;color:var(--gray-1);line-height:1.75;margin-bottom:20px;">"Cotação em menos de 2 minutos. Seguro os 3 patinetes da minha empresa. Atendimento excelente, suporte sempre disponível. Voltaria a contratar."</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="avatar" style="background:linear-gradient(135deg,#10B981,#059669);color:white;">A</div>
+          <div>
+            <div style="font-family:'Sora',sans-serif;font-size:13px;font-weight:600;">Ana P.</div>
+            <div class="text-muted" style="font-size:11px;">Belo Horizonte, MG</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-lime"></div>
+
+
+<!-- ══════════════════════════════════════════
+  SEJA PARCEIRO
+══════════════════════════════════════════ -->
+<section id="parceiros" class="section section-alt">
+  <div class="container">
+    <div class="grid-col-2-1">
+
+      <!-- Left -->
+      <div class="reveal">
+        <div class="badge-section" style="margin-bottom:18px;">06 · Parceiros</div>
+        <h2 style="margin-bottom:16px;">Cresça com a <span class="text-gradient-lime">Clubtech</span></h2>
+        <p class="text-muted" style="font-size:15px;line-height:1.75;margin-bottom:28px;">
+          Seja um canal parceiro e ofereça seguros para seus clientes sem sair do seu negócio. Comissões atrativas, plataforma integrada e suporte dedicado.
+        </p>
+
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+          <div class="check-item">
+            <div class="check-box">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:14px;color:var(--gray-1);">Comissões competitivas e pagamento pontual</span>
+          </div>
+          <div class="check-item">
+            <div class="check-box">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:14px;color:var(--gray-1);">Integração via API ou link personalizado</span>
+          </div>
+          <div class="check-item">
+            <div class="check-box">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:14px;color:var(--gray-1);">Dashboard completo de gestão e relatórios</span>
+          </div>
+          <div class="check-item">
+            <div class="check-box">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--lime)" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:14px;color:var(--gray-1);">Gerente dedicado e suporte exclusivo</span>
+          </div>
+        </div>
+
+        <a href="#cotacao" class="btn btn-primary">Torne-se um parceiro →</a>
+      </div>
+
+      <!-- Right: partner types -->
+      <div class="grid-2 reveal d2">
+        <div class="partner-card">
+          <div style="font-size:2rem;margin-bottom:10px;">📱</div>
+          <h4 style="font-family:'Sora',sans-serif;font-weight:600;font-size:13px;margin-bottom:6px;">Lojas de Celular</h4>
+          <p class="text-muted" style="font-size:12px;">Venda seguro no ato da compra do aparelho</p>
+        </div>
+        <div class="partner-card">
+          <div style="font-size:2rem;margin-bottom:10px;">🚲</div>
+          <h4 style="font-family:'Sora',sans-serif;font-weight:600;font-size:13px;margin-bottom:6px;">Lojas de Bikes</h4>
+          <p class="text-muted" style="font-size:12px;">Venda bikes com proteção inclusa</p>
+        </div>
+        <div class="partner-card">
+          <div style="font-size:2rem;margin-bottom:10px;">🛒</div>
+          <h4 style="font-family:'Sora',sans-serif;font-weight:600;font-size:13px;margin-bottom:6px;">Marketplaces</h4>
+          <p class="text-muted" style="font-size:12px;">Seguros integrados ao checkout</p>
+        </div>
+        <div class="partner-card">
+          <div style="font-size:2rem;margin-bottom:10px;">💳</div>
+          <h4 style="font-family:'Sora',sans-serif;font-weight:600;font-size:13px;margin-bottom:6px;">Fintechs</h4>
+          <p class="text-muted" style="font-size:12px;">Seguros como benefício para usuários</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-lime"></div>
+
+
+<!-- ══════════════════════════════════════════
+  FAQ
+══════════════════════════════════════════ -->
+<section id="faq" class="section section-alt" x-data="{ open: null }">
+  <div class="container-sm">
+
+    <div class="section-center reveal" style="margin-bottom:40px;">
+      <div class="badge-section" style="margin-bottom:14px;">08 · FAQ</div>
+      <h2>Perguntas frequentes</h2>
+    </div>
+
+    <div class="card reveal" style="overflow:hidden;">
+
+      <div class="faq-item">
+        <button class="faq-btn" @click="open = open===1 ? null : 1">
+          <span class="faq-q">O que é uma MGA?</span>
+          <svg class="faq-chevron" :class="open===1?'open':''" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div x-show="open===1" x-transition class="faq-body">
+          Uma MGA (Managing General Agent) é uma distribuidora especializada que atua como intermediária entre seguradoras e o mercado. A Clubtech possui autorização para subscrever riscos em nome da Clubfix Seguros, garantindo agilidade e especialização no processo.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" @click="open = open===2 ? null : 2">
+          <span class="faq-q">Quais aparelhos são cobertos?</span>
+          <svg class="faq-chevron" :class="open===2?'open':''" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div x-show="open===2" x-transition class="faq-body">
+          Smartphones de todas as marcas com valor entre R$ 500 e R$ 12.000. Para eletropropelidos: bicicletas elétricas, patinetes elétricos e ciclomotores com valor de até R$ 30.000.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" @click="open = open===3 ? null : 3">
+          <span class="faq-q">Como acionar o seguro?</span>
+          <svg class="faq-chevron" :class="open===3?'open':''" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div x-show="open===3" x-transition class="faq-body">
+          Acionamento 100% digital. Acesse o portal do segurado, descreva o ocorrido, envie fotos ou documentos e nossa equipe analisa em até 24 horas úteis. Acompanhe tudo por e-mail.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" @click="open = open===4 ? null : 4">
+          <span class="faq-q">Qual o prazo para indenização?</span>
+          <svg class="faq-chevron" :class="open===4?'open':''" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div x-show="open===4" x-transition class="faq-body">
+          Após aprovação, pagamento em até 5 dias úteis via PIX ou TED. Reparos em rede credenciada são agendados em até 48 horas.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" @click="open = open===5 ? null : 5">
+          <span class="faq-q">Há franquia?</span>
+          <svg class="faq-chevron" :class="open===5?'open':''" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div x-show="open===5" x-transition class="faq-body">
+          Depende do plano. Temos opções com e sem franquia — planos com franquia têm mensalidades menores. As condições completas estão disponíveis nas Condições Gerais no site da SUSEP.
+        </div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:none;">
+        <button class="faq-btn" @click="open = open===6 ? null : 6">
+          <span class="faq-q">Como cancelar?</span>
+          <svg class="faq-chevron" :class="open===6?'open':''" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div x-show="open===6" x-transition class="faq-body">
+          Cancelamento a qualquer momento pelo portal do segurado, e-mail ou SAC. O valor proporcional do período não utilizado será devolvido conforme as condições gerais.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+  FOOTER
+══════════════════════════════════════════ -->
+<footer style="background:#030710;border-top:1px solid var(--border-lime);">
+
+  <div class="container" style="padding-top:56px;padding-bottom:48px;">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;">
+
+      <!-- Brand -->
+      <div>
+        <a href="#" class="logo" style="display:inline-block;margin-bottom:16px;">Club<span>tech</span></a>
+        <p style="font-size:13px;color:var(--gray-3);line-height:1.7;max-width:280px;margin-bottom:20px;">
+          MGA especializada em seguros digitais para celulares e eletropropelidos. Direto, confiável, tech-first.
+        </p>
+        <div style="display:flex;gap:8px;">
+          <a href="#" style="width:34px;height:34px;background:var(--navy-light);border:1px solid var(--border);border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--gray-2);transition:border-color .2s,color .2s;" title="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" style="width:34px;height:34px;background:var(--navy-light);border:1px solid var(--border);border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--gray-2);transition:border-color .2s,color .2s;" title="LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" style="width:34px;height:34px;background:var(--navy-light);border:1px solid var(--border);border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--gray-2);transition:border-color .2s,color .2s;" title="X">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <div style="font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gray-2);margin-bottom:16px;">Produtos</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li><a href="#coberturas" style="font-size:13px;color:var(--gray-3);">Seguro Celular</a></li>
+          <li><a href="#coberturas" style="font-size:13px;color:var(--gray-3);">Seguro Eletropropelido</a></li>
+          <li><a href="#cotacao" style="font-size:13px;color:var(--gray-3);">Fazer Cotação</a></li>
+          <li><a href="#parceiros" style="font-size:13px;color:var(--gray-3);">Seja Parceiro</a></li>
+          <li><a href="#faq" style="font-size:13px;color:var(--gray-3);">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <div style="font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gray-2);margin-bottom:16px;">Legal</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li><a href="#" style="font-size:13px;color:var(--gray-3);">Política de Privacidade</a></li>
+          <li><a href="#" style="font-size:13px;color:var(--gray-3);">Termos de Uso</a></li>
+          <li><a href="#" style="font-size:13px;color:var(--gray-3);">Condições Gerais</a></li>
+          <li><a href="http://www.susep.gov.br" target="_blank" rel="noopener" style="font-size:13px;color:var(--gray-3);">SUSEP →</a></li>
+          <li><a href="http://www.consumidor.gov.br" target="_blank" rel="noopener" style="font-size:13px;color:var(--gray-3);">Consumidor.gov →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUSEP compliance bar — obrigatório por lei -->
+  <div style="border-top:1px solid rgba(255,255,255,0.04);background:#020408;">
+    <div class="container" style="padding-top:16px;padding-bottom:16px;">
+      <p style="font-size:11px;color:var(--gray-3);line-height:1.9;text-align:center;">
+        <strong style="color:var(--gray-2);">Clubfix Seguros S/A</strong> — Seguradora garantidora do risco.
+        Produto(s) registrado(s) na SUSEP. O registro não implica incentivo ou recomendação pela Autarquia à comercialização do produto.
+        SAC: 0800 000 0000 · Ouvidoria: 0800 000 0001 ·
+        <a href="mailto:ouvidoria@clubfix.com.br" style="color:var(--gray-3);">ouvidoria@clubfix.com.br</a><br/>
+        Condições Gerais em <a href="http://www.susep.gov.br" target="_blank" rel="noopener" style="color:var(--gray-3);text-decoration:underline;">www.susep.gov.br</a>
+        · Canal de reclamações: <a href="http://www.consumidor.gov.br" target="_blank" rel="noopener" style="color:var(--gray-3);text-decoration:underline;">www.consumidor.gov.br</a><br/>
+        <strong style="color:var(--gray-2);">Clubtech Tecnologia e Seguros LTDA</strong> — CNPJ XX.XXX.XXX/0001-XX · [Endereço completo, Cidade - UF, CEP 00000-000]
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+  WHATSAPP FLOAT
+══════════════════════════════════════════ -->
+<a class="wa-btn" href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20fazer%20uma%20cotação%20na%20Clubtech." target="_blank" rel="noopener" title="Fale conosco no WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+
+<!-- ══════════════════════════════════════════
+  SCRIPTS
+══════════════════════════════════════════ -->
+<script>
+  // ── Scroll reveal ───────────────────────────
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ── Nav scrolled state ──────────────────────
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── Responsive nav hide ─────────────────────
+  const dn = document.getElementById('desktop-nav');
+  function checkNav() { dn.style.display = window.innerWidth < 768 ? 'none' : 'flex'; }
+  checkNav();
+  window.addEventListener('resize', checkNav, { passive: true });
+
+  // ── Counters Alpine component ───────────────
+  function countersComp() {
+    return {
+      c: { segurados: 0, sinistros: 0, satisfacao: 0, minutos: 0 },
+      targets: { segurados: 5000, sinistros: 1200, satisfacao: 98, minutos: 2 },
+      started: false,
+      initObs() {
+        const el = this.$el;
+        const obs = new IntersectionObserver(entries => {
+          if (entries[0].isIntersecting && !this.started) {
+            this.started = true; this.run();
+          }
+        }, { threshold: 0.25 });
+        obs.observe(el);
+      },
+      run() {
+        const STEPS = 55, MS = 1800;
+        let step = 0;
+        const t = setInterval(() => {
+          step++;
+          const p = 1 - Math.pow(1 - step / STEPS, 3);
+          this.c.segurados  = Math.round(this.targets.segurados  * p);
+          this.c.sinistros  = Math.round(this.targets.sinistros  * p);
+          this.c.satisfacao = Math.round(this.targets.satisfacao * p);
+          this.c.minutos    = Math.round(this.targets.minutos    * p);
+          if (step >= STEPS) { clearInterval(t); this.c = { ...this.targets }; }
+        }, MS / STEPS);
+      }
+    };
+  }
+
+</script>
+
+</body>
+</html>
