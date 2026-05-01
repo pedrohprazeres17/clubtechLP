@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clubtech — Seguros para Celular e Eletropropelidos</title>
-  <meta name="description" content="Clubtech é uma MGA especializada em seguros para celulares e eletropropelidos. Contratação 100% digital, cobertura completa, ativação imediata." />
-  <meta property="og:title" content="Clubtech — Seguros para Celular e Eletropropelidos" />
-  <meta property="og:description" content="Seu celular caiu. Você está coberto. Ativou em 3 minutos. Cobre de verdade." />
+  <title>Clubtech — Seguro para Eletropropelidos</title>
+  <meta name="description" content="Clubtech é uma MGA especializada em seguro para eletropropelidos. Bike elétrica, patinete e ciclomotor com cobertura completa. Contratação 100% digital." />
+  <meta property="og:title" content="Clubtech — Seguro para Eletropropelidos" />
+  <meta property="og:description" content="Seu eletropropelido protegido. Bike elétrica, patinete ou ciclomotor cobertos em menos de 2 minutos." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#B8FF47" />
 
@@ -454,7 +454,7 @@
 <!-- ══════════════════════════════════════════
   HERO
 ══════════════════════════════════════════ -->
-<section style="position:relative;min-height:100vh;display:flex;align-items:center;padding-top:64px;overflow:hidden;" x-data="{ tab: 'celular' }">
+<section style="position:relative;min-height:100vh;display:flex;align-items:center;padding-top:64px;overflow:hidden;">
 
   <!-- Glow blobs (manual: lime top-right, cyan bottom-left) -->
   <div class="glow" style="width:600px;height:600px;background:rgba(184,255,71,0.07);top:-120px;right:-180px;"></div>
@@ -473,8 +473,8 @@
         </div>
 
         <h1 style="margin-bottom:20px;">
-          Seu celular e<br/>seu elétrico<br/>
-          <span class="text-gradient-lime">protegidos.</span><br/>
+          Seu eletropropelido<br/>
+          <span class="text-gradient-lime">protegido.</span><br/>
           <span style="color:var(--white);">Simples assim.</span>
         </h1>
 
@@ -482,16 +482,7 @@
           Contratação 100% digital em minutos. Sem papelada, sem burocracia. Cobertura ativa imediatamente após aprovação.
         </p>
 
-        <!-- Product tabs -->
-        <div class="tab-bar" style="margin-bottom:22px;">
-          <button class="tab-btn" :class="tab==='celular'?'active':'inactive'" @click="tab='celular'">📱 Celular</button>
-          <button class="tab-btn" :class="tab==='eletro'?'active':'inactive'" @click="tab='eletro'">⚡ Eletropropelido</button>
-        </div>
-
-        <div x-show="tab==='celular'" style="margin-bottom:28px;">
-          <p style="font-size:14px;color:var(--gray-1);line-height:1.65;max-width:420px;">Proteja seu smartphone contra roubo, furto, quedas e danos acidentais. <strong style="color:var(--lime);">A partir de R$&nbsp;19,90/mês.</strong></p>
-        </div>
-        <div x-show="tab==='eletro'" style="margin-bottom:28px;">
+        <div style="margin-bottom:28px;">
           <p style="font-size:14px;color:var(--gray-1);line-height:1.65;max-width:420px;">Bike elétrica, patinete ou ciclomotor com RC, assistência 24h e cobertura contra roubo e acidentes. <strong style="color:var(--cyan);">Planos a partir de R$&nbsp;49/mês.</strong></p>
         </div>
 
@@ -523,22 +514,12 @@
       <div class="reveal d2 hide-mobile" style="position:relative;display:flex;justify-content:center;align-items:center;height:500px;">
         <div style="position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(184,255,71,0.07) 0%,transparent 70%);pointer-events:none;"></div>
 
-        <!-- Main product card (Celular) -->
-        <div x-show="tab==='celular'" class="float-a" style="background:var(--navy-light);border:1px solid rgba(184,255,71,0.25);border-radius:14px;padding:28px 24px;width:200px;box-shadow:0 40px 80px rgba(0,0,0,0.5);">
-          <div class="card-icon" style="margin-bottom:16px;width:42px;height:42px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-          </div>
-          <div style="font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-2);margin-bottom:4px;">Seguro Celular</div>
-          <div style="font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;margin-bottom:14px;">iPhone 15 Pro</div>
-          <div style="background:var(--lime-alpha);border:1px solid var(--lime-border);border-radius:7px;padding:8px 12px;font-family:'Sora',sans-serif;font-size:11px;font-weight:600;color:var(--lime);">✓ Ativo e protegido</div>
-        </div>
-
         <!-- Main product card (Eletro) -->
-        <div x-show="tab==='eletro'" class="float-a" style="background:var(--navy-light);border:1px solid rgba(59,255,216,0.25);border-radius:14px;padding:28px 24px;width:200px;box-shadow:0 40px 80px rgba(0,0,0,0.5);">
+        <div class="float-a" style="background:var(--navy-light);border:1px solid rgba(59,255,216,0.25);border-radius:14px;padding:28px 24px;width:200px;box-shadow:0 40px 80px rgba(0,0,0,0.5);">
           <div class="card-icon card-icon-cyan" style="margin-bottom:16px;width:42px;height:42px;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
-          <div style="font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-2);margin-bottom:4px;">Seguro Elétrico</div>
+          <div style="font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-2);margin-bottom:4px;">Seguro Eletropropelido</div>
           <div style="font-family:'Sora',sans-serif;font-size:1rem;font-weight:700;margin-bottom:14px;">Bike Elétrica</div>
           <div style="background:var(--cyan-alpha);border:1px solid var(--cyan-border);border-radius:7px;padding:8px 12px;font-family:'Sora',sans-serif;font-size:11px;font-weight:600;color:var(--cyan);">✓ Ativo e protegido</div>
         </div>
@@ -586,7 +567,7 @@
 <!-- ══════════════════════════════════════════
   COBERTURAS
 ══════════════════════════════════════════ -->
-<section id="coberturas" class="section section-alt" x-data="{ tab: 'celular' }">
+<section id="coberturas" class="section section-alt">
   <div class="container">
 
     <div class="section-center reveal" style="margin-bottom:48px;">
@@ -595,62 +576,7 @@
       <p class="text-muted" style="font-size:15px;max-width:460px;margin:0 auto;">Cobertura completa para as situações que mais acontecem no dia a dia.</p>
     </div>
 
-    <div style="display:flex;justify-content:center;margin-bottom:40px;" class="reveal">
-      <div class="tab-bar">
-        <button class="tab-btn" :class="tab==='celular'?'active':'inactive'" @click="tab='celular'">📱 Seguro Celular</button>
-        <button class="tab-btn" :class="tab==='eletro'?'active':'inactive'" @click="tab='eletro'">⚡ Seguro Eletropropelido</button>
-      </div>
-    </div>
-
-    <!-- Celular coverage -->
-    <div x-show="tab==='celular'">
-      <div class="grid-4 reveal">
-
-        <div class="card" style="padding:24px;">
-          <div class="card-header" style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-          </div>
-          <h3 style="margin-bottom:8px;">Roubo e Furto</h3>
-          <p class="text-muted" style="font-size:13px;line-height:1.65;">Cobertura total contra roubo e furto qualificado do seu smartphone.</p>
-        </div>
-
-        <div class="card" style="padding:24px;">
-          <div style="margin-bottom:14px;">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-          </div>
-          <h3 style="margin-bottom:8px;">Danos Acidentais</h3>
-          <p class="text-muted" style="font-size:13px;line-height:1.65;">Quedas, impactos e danos por líquidos cobertos sem complicação.</p>
-        </div>
-
-        <div class="card" style="padding:24px;">
-          <div style="margin-bottom:14px;">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            </div>
-          </div>
-          <h3 style="margin-bottom:8px;">Quebra de Tela</h3>
-          <p class="text-muted" style="font-size:13px;line-height:1.65;">Reparo ou troca com peças originais e técnicos especializados.</p>
-        </div>
-
-        <div class="card" style="padding:24px;">
-          <div style="margin-bottom:14px;">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            </div>
-          </div>
-          <h3 style="margin-bottom:8px;">Assistência Técnica</h3>
-          <p class="text-muted" style="font-size:13px;line-height:1.65;">Rede credenciada em todo o Brasil para reparo especializado.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Eletro coverage -->
-    <div x-show="tab==='eletro'">
+    <div>
       <div class="grid-4 reveal">
 
         <div class="card card-cyan" style="padding:24px;">
@@ -831,8 +757,8 @@
       <div class="card reveal" style="padding:32px 24px;text-align:center;">
         <div style="width:56px;height:56px;background:var(--lime-alpha);border:1.5px solid var(--lime-border);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.5rem;">🔍</div>
         <div class="step-badge">Passo 1</div>
-        <h3 style="margin-bottom:10px;">Escolha seu produto</h3>
-        <p class="text-muted" style="font-size:13px;line-height:1.65;">Celular ou eletropropelido. Personalize a cobertura conforme suas necessidades.</p>
+        <h3 style="margin-bottom:10px;">Escolha seu eletropropelido</h3>
+        <p class="text-muted" style="font-size:13px;line-height:1.65;">Bike elétrica, patinete ou ciclomotor. Personalize a cobertura conforme seu veículo.</p>
       </div>
 
       <div class="card reveal d2" style="padding:32px 24px;text-align:center;border-color:var(--lime-border);background:linear-gradient(160deg,var(--navy-light),rgba(184,255,71,0.03));">
@@ -868,18 +794,9 @@
       <p class="text-muted" style="font-size:15px;">Soluções pensadas para quem mais depende de proteção digital.</p>
     </div>
 
-    <div class="grid-4">
+    <div class="grid-3">
 
       <div class="card reveal" style="padding:24px;">
-        <div style="font-size:2.2rem;margin-bottom:16px;">📱</div>
-        <h3 style="margin-bottom:8px;">Usuário de Smartphone</h3>
-        <p class="text-muted" style="font-size:13px;line-height:1.65;margin-bottom:16px;">Quem usa celular de médio ou alto valor e quer estar protegido a qualquer momento.</p>
-        <div style="padding-top:14px;border-top:1px solid var(--border);">
-          <span style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;color:var(--lime);">A partir de R$ 19,90/mês →</span>
-        </div>
-      </div>
-
-      <div class="card reveal d1" style="padding:24px;">
         <div style="font-size:2.2rem;margin-bottom:16px;">🚴</div>
         <h3 style="margin-bottom:8px;">Ciclista Urbano</h3>
         <p class="text-muted" style="font-size:13px;line-height:1.65;margin-bottom:16px;">Quem usa bike elétrica diariamente e precisa de cobertura total nas ruas da cidade.</p>
@@ -888,7 +805,7 @@
         </div>
       </div>
 
-      <div class="card reveal d2" style="padding:24px;">
+      <div class="card reveal d1" style="padding:24px;">
         <div style="font-size:2.2rem;margin-bottom:16px;">🛵</div>
         <h3 style="margin-bottom:8px;">Entregador</h3>
         <p class="text-muted" style="font-size:13px;line-height:1.65;margin-bottom:16px;">Para profissionais que dependem do patinete ou ciclomotor para trabalhar e gerar renda.</p>
@@ -897,10 +814,10 @@
         </div>
       </div>
 
-      <div class="card reveal d3" style="padding:24px;">
+      <div class="card reveal d2" style="padding:24px;">
         <div style="font-size:2.2rem;margin-bottom:16px;">🏢</div>
         <h3 style="margin-bottom:8px;">Pessoa Jurídica</h3>
-        <p class="text-muted" style="font-size:13px;line-height:1.65;margin-bottom:16px;">Empresas com frotas de celulares corporativos ou veículos elétricos para proteger.</p>
+        <p class="text-muted" style="font-size:13px;line-height:1.65;margin-bottom:16px;">Empresas com frotas de eletropropelidos corporativos para proteger.</p>
         <div style="padding-top:14px;border-top:1px solid var(--border);">
           <span style="font-family:'Sora',sans-serif;font-size:12px;font-weight:600;color:var(--lime);">Plano empresarial →</span>
         </div>
@@ -949,7 +866,7 @@
 
       <div class="card reveal" style="padding:24px;">
         <div class="stars" style="margin-bottom:14px;">★★★★★</div>
-        <p style="font-size:13px;color:var(--gray-1);line-height:1.75;margin-bottom:20px;">"Meu iPhone foi roubado e em menos de 3 dias recebi o ressarcimento completo. Processo todo digital, sem burocracia nenhuma. Recomendo muito!"</p>
+        <p style="font-size:13px;color:var(--gray-1);line-height:1.75;margin-bottom:20px;">"Minha bike elétrica foi roubada e em menos de 3 dias recebi o ressarcimento completo. Processo todo digital, sem burocracia nenhuma. Recomendo muito!"</p>
         <div style="display:flex;align-items:center;gap:10px;">
           <div class="avatar" style="background:linear-gradient(135deg,var(--lime),var(--cyan));color:var(--navy);">M</div>
           <div>
@@ -1038,11 +955,6 @@
       <!-- Right: partner types -->
       <div class="grid-2 reveal d2">
         <div class="partner-card">
-          <div style="font-size:2rem;margin-bottom:10px;">📱</div>
-          <h4 style="font-family:'Sora',sans-serif;font-weight:600;font-size:13px;margin-bottom:6px;">Lojas de Celular</h4>
-          <p class="text-muted" style="font-size:12px;">Venda seguro no ato da compra do aparelho</p>
-        </div>
-        <div class="partner-card">
           <div style="font-size:2rem;margin-bottom:10px;">🚲</div>
           <h4 style="font-family:'Sora',sans-serif;font-weight:600;font-size:13px;margin-bottom:6px;">Lojas de Bikes</h4>
           <p class="text-muted" style="font-size:12px;">Venda bikes com proteção inclusa</p>
@@ -1091,11 +1003,11 @@
 
       <div class="faq-item">
         <button class="faq-btn" @click="open = open===2 ? null : 2">
-          <span class="faq-q">Quais aparelhos são cobertos?</span>
+          <span class="faq-q">Quais veículos são cobertos?</span>
           <svg class="faq-chevron" :class="open===2?'open':''" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div x-show="open===2" x-transition class="faq-body">
-          Smartphones de todas as marcas com valor entre R$ 500 e R$ 12.000. Para eletropropelidos: bicicletas elétricas, patinetes elétricos e ciclomotores com valor de até R$ 30.000.
+          Bicicletas elétricas, patinetes elétricos e ciclomotores com valor de até R$ 30.000.
         </div>
       </div>
 
@@ -1166,7 +1078,7 @@
       <div>
         <a href="#" class="logo" style="display:inline-block;margin-bottom:16px;">Club<span>tech</span></a>
         <p style="font-size:13px;color:var(--gray-3);line-height:1.7;max-width:280px;margin-bottom:20px;">
-          MGA especializada em seguros digitais para celulares e eletropropelidos. Direto, confiável, tech-first.
+          MGA especializada em seguro digital para eletropropelidos. Direto, confiável, tech-first.
         </p>
         <div style="display:flex;gap:8px;">
           <a href="#" style="width:34px;height:34px;background:var(--navy-light);border:1px solid var(--border);border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--gray-2);transition:border-color .2s,color .2s;" title="Instagram">
@@ -1185,7 +1097,6 @@
       <div>
         <div style="font-family:'Sora',sans-serif;font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gray-2);margin-bottom:16px;">Produtos</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
-          <li><a href="#coberturas" style="font-size:13px;color:var(--gray-3);">Seguro Celular</a></li>
           <li><a href="#coberturas" style="font-size:13px;color:var(--gray-3);">Seguro Eletropropelido</a></li>
           <li><a href="#cotacao" style="font-size:13px;color:var(--gray-3);">Fazer Cotação</a></li>
           <li><a href="#parceiros" style="font-size:13px;color:var(--gray-3);">Seja Parceiro</a></li>
